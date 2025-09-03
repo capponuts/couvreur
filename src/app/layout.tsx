@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Couvreur de Vendée à Nesmy | Couverture, Zinguerie, Nettoyage',
-  description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 70km. Devis gratuit, intervention rapide. Plus de 15 ans d\'expérience.',
+  description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 50km. Devis gratuit, intervention rapide. Plus de 15 ans d\'expérience.',
   keywords: [
     'couvreur vendée',
     'couvreur nesmy',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Couvreur de Vendée à Nesmy | Couverture, Zinguerie, Nettoyage',
-    description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 70km. Devis gratuit, intervention rapide.',
+    description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 50km. Devis gratuit, intervention rapide.',
     url: 'https://couvreur-vendee.fr',
     siteName: 'Couvreur de Vendée',
     locale: 'fr_FR',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Couvreur de Vendée à Nesmy | Couverture, Zinguerie, Nettoyage',
-    description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 70km.',
+    description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 50km.',
     images: ['/logo.png'],
   },
   robots: {

@@ -141,7 +141,7 @@ export default function Hero() {
           className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
         >
           Plus de 15 ans d'expérience en couverture, zinguerie et nettoyage de toiture. 
-          Devis gratuit et intervention rapide dans un rayon de 70km autour de Nesmy.
+          Devis gratuit et intervention rapide dans un rayon de 50km autour de Nesmy.
         </motion.p>
 
         {/* CTA Buttons */}
