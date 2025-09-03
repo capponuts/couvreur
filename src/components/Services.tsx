@@ -22,6 +22,20 @@ export default function Services() {
     }
   ]
 
+  const servicesItemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: services.map((s, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        name: s.title,
+        description: s.description
+      }
+    }))
+  }
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -45,6 +59,7 @@ export default function Services() {
 
   return (
     <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesItemList) }} />
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -141,6 +156,7 @@ export default function Services() {
               <img
                 src="/bryan-crapet.png"
                 alt="Notre savoir-faire"
+                loading="lazy"
                 className="rounded-2xl shadow-lg"
               />
             </div>

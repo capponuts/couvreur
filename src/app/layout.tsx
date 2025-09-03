@@ -82,6 +82,37 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#f97316" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'Couvreur de Vendée',
+              url: 'https://couvreurdevendee.fr',
+              image: 'https://couvreurdevendee.fr/logo.png',
+              telephone: '+33641302575',
+              email: 'contact@couvreur-vendee.fr',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: '26 rue Edouard-Monti',
+                addressLocality: 'Nesmy',
+                postalCode: '85310',
+                addressCountry: 'FR'
+              },
+              sameAs: [
+                'https://www.facebook.com/profile.php?id=100066644571040'
+              ],
+              areaServed: [
+                'Nesmy', 'Vendée', 'Pays de la Loire'
+              ],
+              priceRange: '€€',
+              openingHours: 'Mo-Fr 08:00-19:00',
+              description:
+                "Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit. Intervention ~50km autour de Nesmy."
+            })
+          }}
+        />
       </head>
       <body className={inter.className}>
         {children}

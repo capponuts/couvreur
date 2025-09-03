@@ -97,6 +97,7 @@ export default function Hero() {
             alt="Couvreur de Vendée"
             width={200}
             height={100}
+            loading="eager"
             className="mx-auto"
           />
         </motion.div>

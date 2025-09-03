@@ -113,6 +113,7 @@ export default function Realisations() {
                       <img
                         src={realisation.src}
                         alt={realisation.alt}
+                        loading="lazy"
                         className="w-full h-[50vh] md:h-[60vh] object-contain bg-slate-50"
                       />
                     </button>
@@ -165,6 +166,7 @@ export default function Realisations() {
               <img
                 src={realisations[currentIndex].src}
                 alt={realisations[currentIndex].alt}
+                loading="eager"
                 className="w-full max-h-[80vh] object-contain"
               />
               <button
@@ -248,6 +250,7 @@ export default function Realisations() {
               alt="Nos engagements"
               width={600}
               height={400}
+              loading="lazy"
               className="rounded-2xl shadow-xl"
             />
           </motion.div>
