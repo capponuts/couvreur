@@ -61,6 +61,7 @@ export default function Page() {
         </div>
       </section>
 
+      <div className="bg-gradient-to-b from-slate-50 to-gray-100">
       <div className="container mx-auto px-6 py-16">
         <p className="text-gray-700 text-lg leading-relaxed max-w-3xl">
           Apportez lumière, confort et ventilation à vos combles avec l’installation de fenêtres de toit. Nous assurons la création d’ouverture, la pose, l’habillage et l’étanchéité, dans le respect des règles de l’art.
@@ -98,6 +99,7 @@ export default function Page() {
           <details className="rounded-lg border p-4"><summary className="font-medium">Faites-vous aussi la finition intérieure ?</summary><p className="mt-2">Nous pouvons conseiller et intervenir selon le besoin.</p></details>
         </div>
       </section>
+      </div>
       </div>
       <Footer />
       <ScrollToTop />
