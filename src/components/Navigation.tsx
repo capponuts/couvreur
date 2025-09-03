@@ -53,9 +53,14 @@ export default function Navigation() {
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <span className={`text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
-              Couvreur de Vendée
-            </span>
+            <div className="flex items-center space-x-2">
+              <div className={`rounded-lg p-1 ${scrolled ? 'bg-amber-900/20 border border-amber-800/30' : 'bg-amber-900/20 border border-amber-300/30'}`}>
+                <img src="/logo-couvreur-de-vendee-carre.png" alt="Logo" width={28} height={28} className="rounded-md bg-white" />
+              </div>
+              <span className={`text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+                Couvreur de Vendée
+              </span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}

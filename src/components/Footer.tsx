@@ -16,7 +16,10 @@ export default function Footer() {
             viewport={{ once: true }}
             className="md:col-span-2"
           >
-            <div className="flex items-center space-x-2 mb-4">
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="rounded-lg p-2 bg-amber-900/20 border border-amber-800/30">
+                <img src="/logo-couvreur-de-vendee-carre.png" alt="Logo" width={36} height={36} className="rounded-md bg-white" />
+              </div>
               <span className="text-2xl font-bold">Couvreur de Vendée</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">

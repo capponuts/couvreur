@@ -81,7 +81,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#f97316" />
-        <link rel="preload" as="image" href="/logo.png" />
+        <link rel="preload" as="image" href="/logo-couvreur-de-vendee-carre.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <script
           type="application/ld+json"
@@ -91,7 +91,7 @@ export default function RootLayout({
               '@type': 'LocalBusiness',
               name: 'Couvreur de Vendée',
               url: 'https://couvreurdevendee.fr',
-              image: 'https://couvreurdevendee.fr/logo.png',
+              image: 'https://couvreurdevendee.fr/logo-couvreur-de-vendee-carre.png',
               telephone: '+33641302575',
               email: 'contact@couvreur-vendee.fr',
               address: {

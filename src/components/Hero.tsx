@@ -92,14 +92,16 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-8"
         >
-          <img
-            src="/logo.png"
-            alt="Couvreur de Vendée"
-            width={200}
-            height={100}
-            loading="eager"
-            className="mx-auto"
-          />
+          <div className="mx-auto inline-block rounded-2xl p-2 bg-amber-900/30 border border-amber-800/40">
+            <img
+              src="/logo-couvreur-de-vendee-carre.png"
+              alt="Couvreur de Vendée"
+              width={180}
+              height={180}
+              loading="eager"
+              className="rounded-xl bg-white p-1"
+            />
+          </div>
         </motion.div>
 
         {/* Badge */}
