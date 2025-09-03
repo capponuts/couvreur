@@ -4,32 +4,7 @@ import { motion } from 'framer-motion'
 import { Star, Award, Clock, Shield } from 'lucide-react'
 
 export default function Realisations() {
-  const realisations = [
-    {
-      src: "/slide1.jpg",
-      alt: "Réalisation couverture 1"
-    },
-    {
-      src: "/Couvreur-de-Vendee-a-Nesmy05.jpg",
-      alt: "Réalisation couverture 2"
-    },
-    {
-      src: "/Couvreur-de-Vendee-a-Nesmy07.jpg",
-      alt: "Réalisation couverture 3"
-    },
-    {
-      src: "/Couvreur-de-Vendee-a-Nesmy10.jpg",
-      alt: "Réalisation couverture 4"
-    },
-    {
-      src: "/Les-realisations-de-Couvreur-de-Vendee-a-Nesmy09.jpg",
-      alt: "Réalisation couverture 5"
-    },
-    {
-      src: "/slide_2.jpg",
-      alt: "Réalisation couverture 6"
-    }
-  ]
+  // Media gallery removed per request
 
   const engagements = [
     {
@@ -94,32 +69,12 @@ export default function Realisations() {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20"
-        >
-          {realisations.map((realisation, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, z: 10 }}
-              className="relative group cursor-pointer"
-            >
-              <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src={realisation.src}
-                  alt={realisation.alt}
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-lg" />
-              </div>
-            </motion.div>
+        {/* Gallery removed */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div key={index} className="relative aspect-square rounded-lg shadow-lg bg-gradient-to-br from-slate-100 to-slate-200" />
           ))}
-        </motion.div>
+        </div>
 
         {/* Engagements Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -167,16 +122,8 @@ export default function Realisations() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
-          >
-            <img
-              src="/CASA.jpg"
-              alt="Nos engagements"
-              width={600}
-              height={400}
-              className="rounded-2xl shadow-xl"
-            />
-          </motion.div>
+            className="relative rounded-2xl shadow-xl bg-gradient-to-br from-blue-50 to-purple-50 h-72"
+          />
         </div>
       </div>
     </section>

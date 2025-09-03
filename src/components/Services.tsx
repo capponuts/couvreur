@@ -8,20 +8,17 @@ export default function Services() {
     {
       icon: <Home className="h-16 w-16 text-orange-500" />,
       title: "Couverture & Zinguerie",
-      description: "Nous réalisons tous vos travaux de couverture et zinguerie pour assurer une toiture esthétique, durable et parfaitement étanche. Faites confiance à notre savoir-faire.",
-      image: "/Couvreur-zingueur-a-Nesmy03.jpg"
+      description: "Nous réalisons tous vos travaux de couverture et zinguerie pour assurer une toiture esthétique, durable et parfaitement étanche. Faites confiance à notre savoir-faire."
     },
     {
       icon: <Droplets className="h-16 w-16 text-blue-500" />,
       title: "Nettoyage et fuites",
-      description: "Prolongez la durée de vie de votre toiture grâce à nos services de nettoyage et de réparation de fuites. Nous intervenons rapidement pour garantir une toiture propre et sans défauts.",
-      image: "/Nettoyage-de-toiture-a-Nemsy01.jpg"
+      description: "Prolongez la durée de vie de votre toiture grâce à nos services de nettoyage et de réparation de fuites. Nous intervenons rapidement pour garantir une toiture propre et sans défauts."
     },
     {
       icon: <Square className="h-16 w-16 text-green-500" />,
       title: "Pose de fenêtres de toit",
-      description: "Apportez lumière et charme à vos combles grâce à notre expertise en pose de fenêtres de toit. Nous vous garantissons une installation sécurisée et parfaitement isolée.",
-      image: "/Pose-de-fenetre-de-toit-a-Nemsy-_3.jpg"
+      description: "Apportez lumière et charme à vos combles grâce à notre expertise en pose de fenêtres de toit. Nous vous garantissons une installation sécurisée et parfaitement isolée."
     }
   ]
 
@@ -80,13 +77,7 @@ export default function Services() {
               whileHover={{ y: -10 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="object-cover transition-transform duration-300 hover:scale-110"
-                />
-              </div>
+              <div className="relative h-2 bg-gradient-to-r from-slate-100 to-slate-200" />
               <div className="p-8">
                 <div className="flex justify-center mb-4">
                   {service.icon}
