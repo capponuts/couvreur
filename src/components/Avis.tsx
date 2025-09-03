@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 interface Review {
   name: string
@@ -77,6 +78,12 @@ const reviews: Review[] = [
 ]
 
 export default function Avis() {
+  const average = 4.9
+  const [index, setIndex] = useState(0)
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % reviews.length), 4000)
+    return () => clearInterval(id)
+  }, [])
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -95,37 +102,44 @@ export default function Avis() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-14">
           <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-4">Avis Clients</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            La satisfaction de nos clients est notre priorité. Découvrez quelques retours d'expérience.
-          </p>
+          <div className="text-gray-700 flex items-center justify-center gap-3">
+            <span className="text-yellow-500 text-xl">★★★★★</span>
+            <span className="font-semibold">{average.toFixed(1)}/5</span>
+            <span className="text-sm text-gray-500">({reviews.length} avis)</span>
+          </div>
         </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {reviews.map((r, idx) => (
-            <motion.blockquote
-              key={`${r.name}-${idx}`}
-              variants={item}
-              className="relative rounded-2xl bg-white border border-slate-200/70 shadow-sm p-6"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-semibold text-gray-900">{r.name}</p>
-                  {r.meta && <p className="text-xs text-gray-500 mt-0.5">{r.meta}</p>}
+        {/* Slider */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="overflow-hidden">
+            <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${index * 100}%)` }}>
+              {reviews.map((r, idx) => (
+                <div key={`${r.name}-${idx}`} className="min-w-full px-2">
+                  <blockquote className="rounded-2xl bg-white border border-slate-200/70 shadow p-6">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="font-semibold text-gray-900">{r.name}</p>
+                        {r.meta && <p className="text-xs text-gray-500 mt-0.5">{r.meta}</p>}
+                      </div>
+                      <span className="text-yellow-500" aria-hidden>★★★★★</span>
+                    </div>
+                    <p className="mt-4 text-gray-700 leading-relaxed">{r.content}</p>
+                  </blockquote>
                 </div>
-                <span className="text-orange-500 text-xl" aria-hidden>
-                  “
-                </span>
-              </div>
-              <p className="mt-4 text-gray-700 leading-relaxed">{r.content}</p>
-            </motion.blockquote>
-          ))}
-        </motion.div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-center gap-2">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                aria-label={`Aller à l'avis ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all ${index === i ? 'w-6 bg-orange-500' : 'w-2.5 bg-gray-300'}`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
