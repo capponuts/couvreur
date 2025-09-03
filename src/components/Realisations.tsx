@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Star, Award, Clock, Shield } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function Realisations() {
   const realisations = [
@@ -12,6 +13,23 @@ export default function Realisations() {
     { src: '/real5.jpg', alt: 'Réalisation 5' },
     { src: '/real6.jpg', alt: 'Réalisation 6' },
   ]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+
+  const goPrev = () => setCurrentIndex((i) => (i === 0 ? realisations.length - 1 : i - 1))
+  const goNext = () => setCurrentIndex((i) => (i === realisations.length - 1 ? 0 : i + 1))
+
+  useEffect(() => {
+    if (!isLightboxOpen) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsLightboxOpen(false)
+      if (e.key === 'ArrowLeft') goPrev()
+      if (e.key === 'ArrowRight') goNext()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [isLightboxOpen])
 
   const engagements = [
     {
@@ -58,7 +76,7 @@ export default function Realisations() {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section id="realisations" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <motion.div
@@ -76,32 +94,106 @@ export default function Realisations() {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20"
-        >
-          {realisations.map((realisation, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ scale: 1.05, z: 10 }}
-              className="relative group cursor-pointer"
-            >
-              <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
-                <img
-                  src={realisation.src}
-                  alt={realisation.alt}
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-lg" />
+        {/* Carousel */}
+        <div className="mb-20">
+          <div className="relative">
+            <div className="overflow-hidden rounded-xl shadow-lg">
+              <div
+                className="flex transition-transform duration-500"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {realisations.map((realisation, index) => (
+                  <div key={index} className="min-w-full">
+                    <button
+                      type="button"
+                      onClick={() => setIsLightboxOpen(true)}
+                      className="block w-full"
+                      aria-label={`Voir ${realisation.alt}`}
+                    >
+                      <img
+                        src={realisation.src}
+                        alt={realisation.alt}
+                        className="w-full h-[50vh] md:h-[60vh] object-contain bg-slate-50"
+                      />
+                    </button>
+                  </div>
+                ))}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            </div>
+
+            {/* Controls */}
+            <button
+              type="button"
+              onClick={goPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow"
+              aria-label="Précédent"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow"
+              aria-label="Suivant"
+            >
+              ›
+            </button>
+
+            {/* Dots */}
+            <div className="mt-4 flex items-center justify-center space-x-2">
+              {realisations.map((_, i) => (
+                <button
+                  key={i}
+                  aria-label={`Aller à la diapositive ${i + 1}`}
+                  onClick={() => setCurrentIndex(i)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    currentIndex === i ? 'w-6 bg-orange-500' : 'w-2.5 bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Lightbox */}
+        {isLightboxOpen && (
+          <div
+            className="fixed inset-0 z-[60] bg-black/80 flex items-center justify-center p-4"
+            onClick={() => setIsLightboxOpen(false)}
+          >
+            <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={realisations[currentIndex].src}
+                alt={realisations[currentIndex].alt}
+                className="w-full max-h-[80vh] object-contain"
+              />
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                className="absolute top-2 right-2 bg-white/90 text-gray-900 rounded-full w-10 h-10 flex items-center justify-center shadow"
+                aria-label="Fermer"
+              >
+                ✕
+              </button>
+              <button
+                type="button"
+                onClick={goPrev}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 text-gray-900 rounded-full w-10 h-10 flex items-center justify-center shadow"
+                aria-label="Précédent"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 text-gray-900 rounded-full w-10 h-10 flex items-center justify-center shadow"
+                aria-label="Suivant"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Engagements Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
