@@ -31,6 +31,7 @@ export default function Navigation() {
   const navItems = [
     { href: '#services', label: 'Services' },
     { href: '#realisations', label: 'Réalisations' },
+    { href: '#avis', label: 'Avis' },
     { href: '#contact', label: 'Contact' }
   ]
 
