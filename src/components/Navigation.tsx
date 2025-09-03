@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Home as HomeIcon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navigation() {
@@ -16,17 +16,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      const offsetTop = element.offsetTop - 80 // Offset pour la navbar
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth'
-      })
-    }
-    setIsOpen(false) // Ferme le menu mobile
-  }
+  const getHref = (sectionId: string) => `/#${sectionId.replace('#', '')}`
 
   const navItems = [
     { href: '#services', label: 'Services' },
@@ -51,7 +41,7 @@ export default function Navigation() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2 cursor-pointer"
-            onClick={() => scrollToSection('hero')}
+            onClick={() => { window.location.href = getHref('hero') }}
           >
             <div className="flex items-center space-x-2">
               <div className={`rounded-lg p-1 ${scrolled ? 'bg-amber-900/20 border border-amber-800/30' : 'bg-amber-900/20 border border-amber-300/30'}`}>
@@ -65,12 +55,22 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <motion.a
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              href="/"
+              className={`p-2 rounded-lg ${scrolled ? 'text-gray-700 hover:text-orange-500 hover:bg-orange-50' : 'text-white hover:text-orange-400 hover:bg-white/10'}`}
+              aria-label="Accueil"
+              title="Accueil"
+            >
+              <HomeIcon className="h-5 w-5" />
+            </motion.a>
             {navItems.map((item) => (
-              <motion.button
+              <motion.a
                 key={item.href}
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => scrollToSection(item.href.slice(1))}
+                href={getHref(item.href.slice(1))}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                   scrolled
                     ? 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
@@ -78,14 +78,14 @@ export default function Navigation() {
                 }`}
               >
                 {item.label}
-              </motion.button>
+              </motion.a>
             ))}
             
             {/* CTA Button */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('contact')}
+              onClick={() => { window.location.href = getHref('contact') }}
               className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Devis Gratuit
@@ -116,26 +116,31 @@ export default function Navigation() {
           >
             <div className="container mx-auto px-6 py-6">
               <div className="space-y-4">
+                <div className="flex items-center space-x-3 px-1">
+                  <a href="/" onClick={() => setIsOpen(false)} className="p-2 rounded-lg text-gray-700 hover:text-orange-500 hover:bg-orange-50" aria-label="Accueil"><HomeIcon className="h-5 w-5" /></a>
+                </div>
                 {navItems.map((item) => (
-                  <motion.button
+                  <motion.a
                     key={item.href}
                     whileHover={{ x: 10 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => scrollToSection(item.href.slice(1))}
-                    className="block w-full text-left px-4 py-3 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-lg font-medium transition-all duration-300"
+                    href={getHref(item.href.slice(1))}
+                    onClick={() => setIsOpen(false)}
+                    className="block w-full px-4 py-3 text-gray-700 hover:text-orange-500 hover:bg-orange-50 rounded-lg font-medium transition-all duration-300"
                   >
                     {item.label}
-                  </motion.button>
+                  </motion.a>
                 ))}
                 
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => scrollToSection('contact')}
-                  className="w-full bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg"
+                  href={getHref('contact')}
+                  onClick={() => setIsOpen(false)}
+                  className="block w-full text-center bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg"
                 >
                   Devis Gratuit
-                </motion.button>
+                </motion.a>
               </div>
             </div>
           </motion.div>
