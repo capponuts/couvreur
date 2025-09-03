@@ -34,5 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    { url: `${baseUrl}/services/couverture-zinguerie`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/nettoyage-fuites`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/fenetres-de-toit`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   ]
 }

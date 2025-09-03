@@ -8,17 +8,20 @@ export default function Services() {
     {
       icon: <Home className="h-16 w-16 text-orange-500" />,
       title: "Couverture & Zinguerie",
-      description: "Nous réalisons tous vos travaux de couverture et zinguerie pour assurer une toiture esthétique, durable et parfaitement étanche. Faites confiance à notre savoir-faire."
+      description: "Nous réalisons tous vos travaux de couverture et zinguerie pour assurer une toiture esthétique, durable et parfaitement étanche. Faites confiance à notre savoir-faire.",
+      href: "/services/couverture-zinguerie"
     },
     {
       icon: <Droplets className="h-16 w-16 text-blue-500" />,
       title: "Nettoyage et fuites",
-      description: "Prolongez la durée de vie de votre toiture grâce à nos services de nettoyage et de réparation de fuites. Nous intervenons rapidement pour garantir une toiture propre et sans défauts."
+      description: "Prolongez la durée de vie de votre toiture grâce à nos services de nettoyage et de réparation de fuites. Nous intervenons rapidement pour garantir une toiture propre et sans défauts.",
+      href: "/services/nettoyage-fuites"
     },
     {
       icon: <Square className="h-16 w-16 text-green-500" />,
       title: "Pose de fenêtres de toit",
-      description: "Apportez lumière et charme à vos combles grâce à notre expertise en pose de fenêtres de toit. Nous vous garantissons une installation sécurisée et parfaitement isolée."
+      description: "Apportez lumière et charme à vos combles grâce à notre expertise en pose de fenêtres de toit. Nous vous garantissons une installation sécurisée et parfaitement isolée.",
+      href: "/services/fenetres-de-toit"
     }
   ]
 
@@ -92,17 +95,22 @@ export default function Services() {
               whileHover={{ y: -10 }}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
-              <div className="relative h-2 bg-gradient-to-r from-slate-100 to-slate-200" />
+              <a href={service.href} className="block">
+                <div className="relative h-2 bg-gradient-to-r from-slate-100 to-slate-200" />
+              </a>
               <div className="p-8">
                 <div className="flex justify-center mb-4">
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center">
-                  {service.title}
+                  <a href={service.href} className="hover:underline">{service.title}</a>
                 </h3>
                 <p className="text-gray-600 text-center leading-relaxed">
                   {service.description}
                 </p>
+                <div className="mt-6 text-center">
+                  <a href={service.href} className="text-orange-600 font-semibold hover:underline">En savoir plus →</a>
+                </div>
               </div>
             </motion.div>
           ))}
