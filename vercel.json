@@ -40,7 +40,5 @@
   ],
   "env": {
     "NEXT_PUBLIC_SITE_URL": "https://couvreur-vendee.fr"
-  },
-  "name": "couvreur-vendee",
-  "description": "Site web professionnel pour Couvreur de Vendée"
+  }
 }
