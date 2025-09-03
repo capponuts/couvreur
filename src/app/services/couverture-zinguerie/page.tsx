@@ -52,13 +52,13 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      <section className="relative h-[40vh] md:h-[50vh]">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300" style={{ backgroundImage: "url('/service-couverture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="relative h-[44vh] md:h-[54vh]">
+        <div className="absolute inset-0" style={{ backgroundImage: "url('/service-couverture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/10 to-transparent" />
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white">Couverture & Zinguerie</h1>
-            <p className="mt-3 text-white/90 max-w-2xl mx-auto">Pose, rénovation et étanchéité de toitures (ardoise, tuiles, zinc) et travaux de zinguerie.</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow">Couverture & Zinguerie</h1>
+            <p className="mt-3 text-white/95 max-w-2xl mx-auto drop-shadow">Pose, rénovation et étanchéité de toitures (ardoise, tuiles, zinc) et travaux de zinguerie.</p>
           </div>
         </div>
       </section>
@@ -79,14 +79,17 @@ export default function Page() {
           </ul>
         </div>
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Pourquoi nous choisir ?</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>15+ ans d’expérience et finitions soignées</li>
-            <li>Conseils transparents, devis gratuit et détaillé</li>
-            <li>Respect des délais et du bâti existant</li>
-            <li>Suivi client et garanties</li>
-          </ul>
+          <img src="/real1.jpg" alt="Exemple de couverture" className="rounded-2xl shadow object-cover w-full h-64" loading="lazy" />
         </div>
+      </section>
+
+      <section className="mt-12 grid md:grid-cols-3 gap-6">
+        {["Expérience", "Transparence", "Durabilité"].map((t, i) => (
+          <div key={i} className="rounded-2xl bg-white border border-slate-200 shadow p-6">
+            <h3 className="font-semibold text-gray-900 mb-2">{t}</h3>
+            <p className="text-gray-600">{t === 'Expérience' ? 'Plus de 15 ans de savoir-faire et de finitions soignées.' : t === 'Transparence' ? 'Conseils clairs, devis gratuit et détaillé.' : 'Respect du bâti, matériaux adaptés et garanties.'}</p>
+          </div>
+        ))}
       </section>
 
       <section className="mt-12">

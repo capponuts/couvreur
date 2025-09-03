@@ -50,13 +50,13 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      <section className="relative h-[40vh] md:h-[50vh]">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300" style={{ backgroundImage: "url('/service-nettoyage.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-        <div className="absolute inset-0 bg-black/40" />
+      <section className="relative h-[44vh] md:h-[54vh]">
+        <div className="absolute inset-0" style={{ backgroundImage: "url('/real4.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/10 to-transparent" />
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white">Nettoyage & Réparation de fuites</h1>
-            <p className="mt-3 text-white/90 max-w-2xl mx-auto">Démoussage, traitements adaptés et interventions rapides en cas de fuite.</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow">Nettoyage & Réparation de fuites</h1>
+            <p className="mt-3 text-white/95 max-w-2xl mx-auto drop-shadow">Démoussage, traitements adaptés et interventions rapides en cas de fuite.</p>
           </div>
         </div>
       </section>
@@ -77,14 +77,17 @@ export default function Page() {
           </ul>
         </div>
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold">Vos bénéfices</h2>
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>Prévention des dégradations et infiltrations</li>
-            <li>Toiture plus durable et esthétique</li>
-            <li>Intervention rapide autour de Nesmy (≈50km)</li>
-            <li>Devis gratuit et conseils personnalisés</li>
-          </ul>
+          <img src="/real5.jpg" alt="Nettoyage de toiture" className="rounded-2xl shadow object-cover w-full h-64" loading="lazy" />
         </div>
+      </section>
+
+      <section className="mt-12 grid md:grid-cols-3 gap-6">
+        {["Prévention", "Esthétique", "Rapidité"].map((t, i) => (
+          <div key={i} className="rounded-2xl bg-white border border-slate-200 shadow p-6">
+            <h3 className="font-semibold text-gray-900 mb-2">{t}</h3>
+            <p className="text-gray-600">{t === 'Prévention' ? 'Évite les infiltrations et dégradations structurelles.' : t === 'Esthétique' ? 'Redonne un aspect propre et net au toit.' : 'Intervention rapide dans votre zone.'}</p>
+          </div>
+        ))}
       </section>
 
       <section className="mt-12">
