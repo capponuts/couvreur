@@ -54,7 +54,7 @@ export default function Page() {
 
       <section className="relative h-[44vh] md:h-[54vh]">
         <div className="absolute inset-0" style={{ backgroundImage: "url('/service-couverture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/40 via-transparent to-blue-500/40" />
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow">Couverture & Zinguerie</h1>
