@@ -30,7 +30,7 @@ export default function Footer() {
               <a href="tel:+33641302575" className="text-orange-400 hover:text-orange-300 transition-colors">
                 <Phone className="h-5 w-5" />
               </a>
-              <a href="mailto:contact@couvreur-vendee.fr" className="text-orange-400 hover:text-orange-300 transition-colors">
+              <a href="mailto:couvreur.devendee@orange.fr" className="text-orange-400 hover:text-orange-300 transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
               <a
@@ -43,7 +43,7 @@ export default function Footer() {
               >
                 Fb
               </a>
-              <a href="#contact" className="text-orange-400 hover:text-orange-300 transition-colors">
+              <a href="https://share.google/IPksSIt2lPUF8Vgvv" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 transition-colors" aria-label="Google Maps">
                 <MapPin className="h-5 w-5" />
               </a>
             </div>
