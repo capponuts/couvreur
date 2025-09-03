@@ -152,13 +152,14 @@ export default function Services() {
                   Tous nos travaux sont conformes aux normes de sécurité et de protection de l'environnement.
                 </p>
               </div>
-              <motion.button
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-8 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-all duration-300"
+                href="/#contact"
+                className="mt-8 inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-all duration-300"
               >
                 Contactez Nous
-              </motion.button>
+              </motion.a>
             </div>
             <div className="relative">
               <img

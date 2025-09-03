@@ -152,23 +152,25 @@ export default function Hero() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-16"
         >
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            href="/#contact"
             className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:shadow-2xl transition-all duration-300 shadow-lg"
           >
             <span>DEVIS GRATUIT</span>
             <ArrowRight className="h-5 w-5" />
-          </motion.button>
+          </motion.a>
 
-          <motion.button
+          <motion.a
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            href="/#realisations"
             className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-white/20 transition-all duration-300"
           >
             <Play className="h-5 w-5" />
             <span>Voir nos réalisations</span>
-          </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Phone Call Button */}
