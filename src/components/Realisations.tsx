@@ -122,8 +122,16 @@ export default function Realisations() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative rounded-2xl shadow-xl bg-gradient-to-br from-blue-50 to-purple-50 h-72"
-          />
+            className="relative"
+          >
+            <img
+              src="/CASA.jpg"
+              alt="Nos engagements"
+              width={600}
+              height={400}
+              className="rounded-2xl shadow-xl"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
