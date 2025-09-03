@@ -35,7 +35,17 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video removed per request */}
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/video-cover.mp4" type="video/mp4" />
+      </video>
       
       {/* Fallback Background si la vidéo ne charge pas */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-blue-500/10 to-orange-500/10 z-0" />
