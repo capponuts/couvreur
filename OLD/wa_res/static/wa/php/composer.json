@@ -1,0 +1,9 @@
+{
+    
+	"config": { 
+   	"vendor-dir": "." 
+  	},	 
+   "require": {
+		"phpmailer/phpmailer": "^6.0"
+   }
+}
