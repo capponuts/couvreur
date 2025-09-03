@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, MapPin, Phone, Mail } from 'lucide-react'
+import { MapPin, Phone, Mail } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -17,7 +17,6 @@ export default function Footer() {
             className="md:col-span-2"
           >
             <div className="flex items-center space-x-2 mb-4">
-              <Sparkles className="h-8 w-8 text-orange-400" />
               <span className="text-2xl font-bold">Couvreur de Vendée</span>
             </div>
             <p className="text-gray-300 mb-4 max-w-md">

@@ -1,3 +1,7 @@
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
+
 export default function Page() {
   const faq = {
     '@context': 'https://schema.org',
@@ -41,15 +45,26 @@ export default function Page() {
   }
 
   return (
-    <main className="container mx-auto px-6 py-16">
+    <main className="min-h-screen">
+      <Navigation />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Pose de fenêtres de toit</h1>
-      <p className="text-gray-700 text-lg leading-relaxed max-w-3xl">
-        Apportez lumière, confort et ventilation à vos combles avec l’installation de fenêtres de toit. Nous assurons
-        la création d’ouverture, la pose, l’habillage et l’étanchéité, dans le respect des règles de l’art.
-      </p>
+      <section className="relative h-[40vh] md:h-[50vh]">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300" style={{ backgroundImage: "url('/service-fenetres.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white">Pose de fenêtres de toit</h1>
+            <p className="mt-3 text-white/90 max-w-2xl mx-auto">Création d’ouverture, pose, habillage et étanchéité dans les règles de l’art.</p>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-6 py-16">
+        <p className="text-gray-700 text-lg leading-relaxed max-w-3xl">
+          Apportez lumière, confort et ventilation à vos combles avec l’installation de fenêtres de toit. Nous assurons la création d’ouverture, la pose, l’habillage et l’étanchéité, dans le respect des règles de l’art.
+        </p>
 
       <section className="mt-10 grid md:grid-cols-2 gap-8">
         <div className="space-y-4">
@@ -80,6 +95,9 @@ export default function Page() {
           <details className="rounded-lg border p-4"><summary className="font-medium">Faites-vous aussi la finition intérieure ?</summary><p className="mt-2">Nous pouvons conseiller et intervenir selon le besoin.</p></details>
         </div>
       </section>
+      </div>
+      <Footer />
+      <ScrollToTop />
     </main>
   )
 }

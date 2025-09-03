@@ -1,3 +1,7 @@
+import Navigation from '@/components/Navigation'
+import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
+
 export default function Page() {
   const faq = {
     '@context': 'https://schema.org',
@@ -43,17 +47,26 @@ export default function Page() {
   }
 
   return (
-    <main className="container mx-auto px-6 py-16">
+    <main className="min-h-screen">
+      <Navigation />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faq) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
 
-      <h1 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Couverture & Zinguerie</h1>
-      <p className="text-gray-700 text-lg leading-relaxed max-w-3xl">
-        Nous réalisons la pose, la rénovation et l’entretien de toitures: ardoise, tuiles, zinc. Notre
-        expertise couvre la zinguerie (chéneaux, solins, descentes), l’étanchéité et la ventilation, avec un soin
-        particulier apporté aux détails et à la durabilité. Nous intervenons autour de Nesmy (≈50km) avec des délais
-        tenus et des devis clairs.
-      </p>
+      <section className="relative h-[40vh] md:h-[50vh]">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300" style={{ backgroundImage: "url('/service-couverture.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white">Couverture & Zinguerie</h1>
+            <p className="mt-3 text-white/90 max-w-2xl mx-auto">Pose, rénovation et étanchéité de toitures (ardoise, tuiles, zinc) et travaux de zinguerie.</p>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-6 py-16">
+        <p className="text-gray-700 text-lg leading-relaxed max-w-3xl">
+          Nous réalisons la pose, la rénovation et l’entretien de toitures: ardoise, tuiles, zinc. Notre expertise couvre la zinguerie (chéneaux, solins, descentes), l’étanchéité et la ventilation, avec un soin particulier apporté aux détails et à la durabilité. Nous intervenons autour de Nesmy (≈50km) avec des délais tenus et des devis clairs.
+        </p>
 
       <section className="mt-10 grid md:grid-cols-2 gap-8">
         <div className="space-y-4">
@@ -84,6 +97,9 @@ export default function Page() {
           <details className="rounded-lg border p-4"><summary className="font-medium">Le devis est-il gratuit ?</summary><p className="mt-2">Oui, devis gratuit avec délai d’intervention rapide autour de Nesmy.</p></details>
         </div>
       </section>
+      </div>
+      <Footer />
+      <ScrollToTop />
     </main>
   )
 }
