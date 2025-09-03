@@ -10,19 +10,19 @@ export default function Services() {
       icon: <Home className="h-16 w-16 text-orange-500" />,
       title: "Couverture & Zinguerie",
       description: "Nous réalisons tous vos travaux de couverture et zinguerie pour assurer une toiture esthétique, durable et parfaitement étanche. Faites confiance à notre savoir-faire.",
-      image: "/images/Couvreur-zingueur-a-Nesmy03.jpg"
+      image: "/Couvreur-zingueur-a-Nesmy03.jpg"
     },
     {
       icon: <Droplets className="h-16 w-16 text-blue-500" />,
       title: "Nettoyage et fuites",
       description: "Prolongez la durée de vie de votre toiture grâce à nos services de nettoyage et de réparation de fuites. Nous intervenons rapidement pour garantir une toiture propre et sans défauts.",
-      image: "/images/Nettoyage-de-toiture-a-Nemsy01.jpg"
+      image: "/Nettoyage-de-toiture-a-Nemsy01.jpg"
     },
     {
       icon: <Square className="h-16 w-16 text-green-500" />,
       title: "Pose de fenêtres de toit",
       description: "Apportez lumière et charme à vos combles grâce à notre expertise en pose de fenêtres de toit. Nous vous garantissons une installation sécurisée et parfaitement isolée.",
-      image: "/images/Pose-de-fenetre-de-toit-a-Nemsy-_3.jpg"
+      image: "/Pose-de-fenetre-de-toit-a-Nemsy-_3.jpg"
     }
   ]
 
@@ -150,7 +150,7 @@ export default function Services() {
             </div>
             <div className="relative">
               <Image
-                src="/images/30163bf0-ff1a-4f9e-9861-467ea8d5c1c5.png"
+                src="/bryan-crapet.png"
                 alt="Notre savoir-faire"
                 width={600}
                 height={400}

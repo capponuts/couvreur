@@ -36,8 +36,19 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900" />
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/video-cover.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Background Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-0" />
       
       {/* Animated Background Shapes */}
       <motion.div
@@ -50,7 +61,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute top-20 left-20 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl"
+        className="absolute top-20 left-20 w-72 h-72 bg-orange-500/10 rounded-full blur-3xl z-0"
       />
       
       <motion.div
@@ -63,7 +74,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"
+        className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl z-0"
       />
 
       {/* Content */}
@@ -79,7 +90,7 @@ export default function Hero() {
           className="mb-8"
         >
           <Image
-            src="/images/logo.png"
+            src="/logo.png"
             alt="Couvreur de Vendée"
             width={200}
             height={100}
@@ -205,7 +216,7 @@ export default function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <motion.div

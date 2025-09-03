@@ -7,27 +7,27 @@ import Image from 'next/image'
 export default function Realisations() {
   const realisations = [
     {
-      src: "/images/slide1.jpg",
+      src: "/slide1.jpg",
       alt: "Réalisation couverture 1"
     },
     {
-      src: "/images/Couvreur-de-Vendee-a-Nesmy05.jpg",
+      src: "/Couvreur-de-Vendee-a-Nesmy05.jpg",
       alt: "Réalisation couverture 2"
     },
     {
-      src: "/images/Couvreur-de-Vendee-a-Nesmy07.jpg",
+      src: "/Couvreur-de-Vendee-a-Nesmy07.jpg",
       alt: "Réalisation couverture 3"
     },
     {
-      src: "/images/Couvreur-de-Vendee-a-Nesmy10.jpg",
+      src: "/Couvreur-de-Vendee-a-Nesmy10.jpg",
       alt: "Réalisation couverture 4"
     },
     {
-      src: "/images/Les-realisations-de-Couvreur-de-Vendee-a-Nesmy09.jpg",
+      src: "/Les-realisations-de-Couvreur-de-Vendee-a-Nesmy09.jpg",
       alt: "Réalisation couverture 5"
     },
     {
-      src: "/images/slide_2.jpg",
+      src: "/slide_2.jpg",
       alt: "Réalisation couverture 6"
     }
   ]
@@ -172,7 +172,7 @@ export default function Realisations() {
             className="relative"
           >
             <Image
-              src="/images/CASA.jpg"
+              src="/CASA.jpg"
               alt="Nos engagements"
               width={600}
               height={400}
