@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, Star, Phone } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Hero() {
+  const [showVideo, setShowVideo] = useState(true)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,21 +38,23 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        onError={(e) => console.error('Erreur vidéo:', e)}
-        onLoadStart={() => console.log('Chargement vidéo démarré')}
-        onCanPlay={() => console.log('Vidéo prête à jouer')}
-      >
-        <source src="/video-cover.mp4" type="video/mp4" />
-        {/* Fallback pour navigateurs qui ne supportent pas la vidéo */}
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-blue-500/20" />
-      </video>
+      {showVideo && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          onError={() => setShowVideo(false)}
+          onLoadStart={() => console.log('Chargement vidéo démarré')}
+          onCanPlay={() => console.log('Vidéo prête à jouer')}
+        >
+          <source src="/video-cover.mp4" type="video/mp4" />
+          {/* Fallback pour navigateurs qui ne supportent pas la vidéo */}
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-blue-500/20" />
+        </video>
+      )}
       
       {/* Fallback Background si la vidéo ne charge pas */}
       <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-blue-500/10 to-orange-500/10 z-0" />
