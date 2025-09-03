@@ -41,10 +41,19 @@ export default function Hero() {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover z-0"
+        onError={(e) => console.error('Erreur vidéo:', e)}
+        onLoadStart={() => console.log('Chargement vidéo démarré')}
+        onCanPlay={() => console.log('Vidéo prête à jouer')}
       >
         <source src="/video-cover.mp4" type="video/mp4" />
+        {/* Fallback pour navigateurs qui ne supportent pas la vidéo */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-blue-500/20" />
       </video>
+      
+      {/* Fallback Background si la vidéo ne charge pas */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-blue-500/10 to-orange-500/10 z-0" />
       
       {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/50 z-0" />
