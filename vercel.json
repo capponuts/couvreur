@@ -8,10 +8,17 @@
       "maxDuration": 10
     }
   },
-  "rewrites": [
+  "static": {
+    "public": "public"
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/$1"
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*\\.(jpg|jpeg|png|gif|svg|mp4|webm|ico|txt))",
+      "dest": "/$1"
     }
   ]
 }
