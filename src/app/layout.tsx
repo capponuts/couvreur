@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/logo.png',
-        width: 200,
-        height: 100,
-        alt: 'Logo Couvreur de Vendée',
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Couvreur de Vendée - Couverture, Zinguerie, Nettoyage',
       },
     ],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Couvreur de Vendée à Nesmy | Couverture, Zinguerie, Nettoyage',
     description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 50km.',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

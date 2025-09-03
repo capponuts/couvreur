@@ -4,7 +4,14 @@ import { motion } from 'framer-motion'
 import { Star, Award, Clock, Shield } from 'lucide-react'
 
 export default function Realisations() {
-  // Media gallery removed per request
+  const realisations = [
+    { src: '/real1.jpg', alt: 'Réalisation 1' },
+    { src: '/real2.jpg', alt: 'Réalisation 2' },
+    { src: '/real3.jpg', alt: 'Réalisation 3' },
+    { src: '/real4.jpg', alt: 'Réalisation 4' },
+    { src: '/real5.jpg', alt: 'Réalisation 5' },
+    { src: '/real6.jpg', alt: 'Réalisation 6' },
+  ]
 
   const engagements = [
     {
@@ -69,12 +76,32 @@ export default function Realisations() {
           </p>
         </motion.div>
 
-        {/* Gallery removed */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <div key={index} className="relative aspect-square rounded-lg shadow-lg bg-gradient-to-br from-slate-100 to-slate-200" />
+        {/* Gallery Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-20"
+        >
+          {realisations.map((realisation, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05, z: 10 }}
+              className="relative group cursor-pointer"
+            >
+              <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src={realisation.src}
+                  alt={realisation.alt}
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-lg" />
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Engagements Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">

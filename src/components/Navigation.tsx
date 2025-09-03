@@ -1,7 +1,7 @@
 'use client'
 
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 export default function Navigation() {
@@ -52,7 +52,6 @@ export default function Navigation() {
             className="flex items-center space-x-2 cursor-pointer"
             onClick={() => scrollToSection('hero')}
           >
-            <Sparkles className={`h-8 w-8 ${scrolled ? 'text-orange-500' : 'text-orange-400'}`} />
             <span className={`text-xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
               Couvreur de Vendée
             </span>
