@@ -28,14 +28,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://couvreur-vendee.fr'),
+  metadataBase: new URL('https://couvreurdevendee.fr'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Couvreur de Vendée à Nesmy | Couverture, Zinguerie, Nettoyage',
     description: 'Spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 50km. Devis gratuit, intervention rapide.',
-    url: 'https://couvreur-vendee.fr',
+    url: 'https://couvreurdevendee.fr',
     siteName: 'Couvreur de Vendée',
     locale: 'fr_FR',
     type: 'website',

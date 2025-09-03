@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/_next/'],
     },
-    sitemap: 'https://couvreur-vendee.fr/sitemap.xml',
+    sitemap: 'https://couvreurdevendee.fr/sitemap.xml',
   }
 }

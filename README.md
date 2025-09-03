@@ -148,7 +148,7 @@ src/
 ### **Variables d'environnement Vercel**
 ```env
 RESEND_API_KEY=re_your_api_key_here
-NEXT_PUBLIC_SITE_URL=https://couvreur-vendee.fr
+NEXT_PUBLIC_SITE_URL=https://couvreurdevendee.fr
 ```
 
 ## 📱 Responsive Design
