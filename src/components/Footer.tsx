@@ -31,6 +31,16 @@ export default function Footer() {
               <a href="mailto:contact@couvreur-vendee.fr" className="text-orange-400 hover:text-orange-300 transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100066644571040"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange-400 hover:text-orange-300 transition-colors font-semibold"
+                aria-label="Facebook"
+                title="Facebook"
+              >
+                Fb
+              </a>
               <a href="#contact" className="text-orange-400 hover:text-orange-300 transition-colors">
                 <MapPin className="h-5 w-5" />
               </a>
@@ -87,7 +97,7 @@ export default function Footer() {
         >
           <p>&copy; 2024 Couvreur de Vendée. Tous droits réservés.</p>
           <p className="mt-2 text-sm">
-            Zone d'intervention : 70 km autour de Nesmy, Vendée
+            Zone d'intervention : 50 km autour de Nesmy, Vendée
           </p>
         </motion.div>
       </div>
