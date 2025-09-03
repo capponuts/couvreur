@@ -8,14 +8,7 @@
       "maxDuration": 10
     }
   },
-  "static": {
-    "public": "public"
-  },
   "routes": [
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
     {
       "src": "/(.*\\.(jpg|jpeg|png|gif|svg|mp4|webm|ico|txt))",
       "dest": "/$1"
