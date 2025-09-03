@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone, MapPin, Mail, Send } from 'lucide-react'
+import { Phone, MapPin, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Contact() {
@@ -9,22 +9,59 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    date: '',
+    service: '',
     message: ''
   })
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [statusMessage, setStatusMessage] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Ici vous pouvez ajouter la logique d'envoi du formulaire
-    console.log('Formulaire soumis:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setStatusMessage('Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.')
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+      } else {
+        setSubmitStatus('error')
+        setStatusMessage(result.error || 'Une erreur est survenue. Veuillez réessayer.')
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      setStatusMessage('Erreur de connexion. Veuillez vérifier votre connexion internet.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     })
   }
+
+  const services = [
+    'Couverture & Zinguerie',
+    'Nettoyage et fuites',
+    'Pose de fenêtres de toit',
+    'Autre'
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -111,7 +148,7 @@ export default function Contact() {
                   <Mail className="h-6 w-6 text-orange-400 mt-1" />
                   <div>
                     <h4 className="text-white font-semibold mb-1">Email</h4>
-                    <p className="text-gray-300">contact@couvreur-vendee.fr</p>
+                    <p className="text-gray-300">couvreur.devendee@orange.fr</p>
                   </div>
                 </div>
               </div>
@@ -162,6 +199,29 @@ export default function Contact() {
                 Demande de devis
               </h3>
               
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg flex items-center space-x-3"
+                >
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <p className="text-green-300">{statusMessage}</p>
+                </motion.div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center space-x-3"
+                >
+                  <AlertCircle className="h-5 w-5 text-red-400" />
+                  <p className="text-red-300">{statusMessage}</p>
+                </motion.div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <input
@@ -200,14 +260,20 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <input
-                    type="text"
-                    name="date"
-                    value={formData.date}
+                  <select
+                    name="service"
+                    value={formData.service}
                     onChange={handleChange}
-                    placeholder="Date souhaitée"
-                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
-                  />
+                    className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
+                    required
+                  >
+                    <option value="">Sélectionnez un service</option>
+                    {services.map((service) => (
+                      <option key={service} value={service} className="text-gray-900">
+                        {service}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
@@ -216,7 +282,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Votre message"
-                    rows={4}
+                    rows={5}
                     className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300 resize-none"
                     required
                   />
@@ -224,12 +290,26 @@ export default function Contact() {
 
                 <motion.button
                   type="submit"
+                  disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center justify-center space-x-2 hover:shadow-lg transition-all duration-300"
+                  className={`w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                    isSubmitting
+                      ? 'bg-gray-500 cursor-not-allowed'
+                      : 'bg-orange-500 hover:bg-orange-600 shadow-lg hover:shadow-xl'
+                  } text-white`}
                 >
-                  <Send className="h-5 w-5" />
-                  <span>Envoyer</span>
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Envoi en cours...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="h-5 w-5" />
+                      <span>Envoyer le message</span>
+                    </>
+                  )}
                 </motion.button>
               </form>
             </div>

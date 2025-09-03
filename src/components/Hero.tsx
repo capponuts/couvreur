@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, Star, Phone } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Hero() {
   const containerVariants = {
@@ -35,7 +34,7 @@ export default function Hero() {
   ]
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <video
         autoPlay
@@ -89,7 +88,7 @@ export default function Hero() {
           variants={itemVariants}
           className="mb-8"
         >
-          <Image
+          <img
             src="/logo.png"
             alt="Couvreur de Vendée"
             width={200}
@@ -110,7 +109,7 @@ export default function Hero() {
         {/* Main Title */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 leading-tight px-2"
         >
           Couvreur de{' '}
           <span className="bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
@@ -122,9 +121,9 @@ export default function Hero() {
         {/* Typewriter Effect */}
         <motion.div
           variants={itemVariants}
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
-          <div className="text-2xl md:text-3xl lg:text-4xl text-white">
+          <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white px-2">
             Des travaux{' '}
             <span className="text-orange-400 font-semibold">
               {typewriterTexts[0]}
@@ -135,10 +134,10 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 md:mb-12 max-w-4xl mx-auto leading-relaxed px-4"
         >
-          Spécialisés en couverture, zinguerie, nettoyage de toiture, réparation de fuites et pose de fenêtres de toit. 
-          Expertise, rapidité et qualité pour tous vos travaux !
+          Plus de 15 ans d'expérience en couverture, zinguerie et nettoyage de toiture. 
+          Devis gratuit et intervention rapide dans un rayon de 70km autour de Nesmy.
         </motion.p>
 
         {/* CTA Buttons */}

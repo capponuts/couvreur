@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Star, Award, Clock, Shield } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Realisations() {
   const realisations = [
@@ -111,10 +110,9 @@ export default function Realisations() {
               className="relative group cursor-pointer"
             >
               <div className="relative aspect-square overflow-hidden rounded-lg shadow-lg">
-                <Image
+                <img
                   src={realisation.src}
                   alt={realisation.alt}
-                  fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-lg" />
@@ -171,7 +169,7 @@ export default function Realisations() {
             viewport={{ once: true }}
             className="relative"
           >
-            <Image
+            <img
               src="/CASA.jpg"
               alt="Nos engagements"
               width={600}

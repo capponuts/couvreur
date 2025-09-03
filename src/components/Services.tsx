@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import { Home, Droplets, Square } from 'lucide-react'
-import Image from 'next/image'
 
 export default function Services() {
   const services = [
@@ -82,10 +81,9 @@ export default function Services() {
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative h-64 overflow-hidden">
-                <Image
+                <img
                   src={service.image}
                   alt={service.title}
-                  fill
                   className="object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
@@ -149,11 +147,9 @@ export default function Services() {
               </motion.button>
             </div>
             <div className="relative">
-              <Image
+              <img
                 src="/bryan-crapet.png"
                 alt="Notre savoir-faire"
-                width={600}
-                height={400}
                 className="rounded-2xl shadow-lg"
               />
             </div>

@@ -1,42 +1,56 @@
 # 🏠 Couvreur de Vendée - Site Web Professionnel
 
-Un site web moderne et élégant pour l'entreprise Couvreur de Vendée, construit avec Next.js, Tailwind CSS, et Framer Motion. Ce site reprend tout le contenu de l'ancien site web tout en offrant une expérience utilisateur moderne et responsive.
+Site web moderne et responsive pour Couvreur de Vendée, spécialiste en couverture, zinguerie, nettoyage de toiture et pose de fenêtres de toit à Nesmy et dans un rayon de 70km.
 
 ## ✨ Fonctionnalités
 
-- 🎨 Design moderne avec animations fluides
-- 📱 Interface responsive pour tous les appareils
-- ⚡ Performance optimisée avec Next.js 15
-- 🎭 Animations avec Framer Motion
-- 🎨 Icônes avec Lucide React
-- 🎨 Styling avec Tailwind CSS
-- 🔍 SEO optimisé
-- 🚀 Prêt pour le déploiement sur Vercel
-- 📸 Galerie d'images des réalisations
-- 📝 Formulaire de contact fonctionnel
+### 🎯 **Navigation & UX**
+- **Navigation fluide** avec scroll automatique vers les sections
+- **Menu responsive** qui s'adapte au scroll (transparent → opaque)
+- **Bouton "Retour en haut"** avec animation
+- **Scroll fluide** entre les sections
 
-## 🛠️ Technologies Utilisées
+### 📱 **Design Responsive**
+- **Mobile-first** design
+- **Breakpoints optimisés** : sm, md, lg, xl
+- **Navigation mobile** avec menu hamburger
+- **Images et vidéos** adaptatives
 
-- **Framework**: Next.js 15 (App Router)
-- **Langage**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **Icônes**: Lucide React
-- **Linting**: ESLint
-- **Build Tool**: Next.js Build System
+### 🎨 **Animations & Interactions**
+- **Framer Motion** pour des animations fluides
+- **Hover effects** sur tous les éléments interactifs
+- **Transitions** CSS et JavaScript
+- **Animations au scroll** avec `whileInView`
 
-## 🚀 Installation et Démarrage
+### 📧 **Formulaire de Contact**
+- **Intégration Resend** pour l'envoi d'emails
+- **Validation des champs** côté client et serveur
+- **Gestion des états** (envoi, succès, erreur)
+- **Sélection de service** avec dropdown
+- **Feedback visuel** pour l'utilisateur
 
-### Prérequis
+### 🔍 **SEO Optimisé**
+- **Métadonnées complètes** (Open Graph, Twitter)
+- **Sitemap dynamique** généré automatiquement
+- **Robots.txt** configuré
+- **Structure HTML sémantique**
+- **Images avec alt text**
 
-- Node.js 18+ 
-- npm ou yarn
+## 🚀 Technologies
 
-### Installation
+- **Framework** : Next.js 15 (App Router)
+- **Language** : TypeScript
+- **Styling** : Tailwind CSS
+- **Animations** : Framer Motion
+- **Icons** : Lucide React
+- **Email** : Resend
+- **Deployment** : Vercel
 
-1. **Cloner le repository**
+## 📦 Installation
+
+1. **Cloner le projet**
    ```bash
-   git clone <votre-repo>
+   git clone https://github.com/your-username/couvreur-vendee.git
    cd couvreur-vendee
    ```
 
@@ -45,197 +59,173 @@ Un site web moderne et élégant pour l'entreprise Couvreur de Vendée, construi
    npm install
    ```
 
-3. **Démarrer le serveur de développement**
+3. **Configuration Resend** (optionnel)
+   ```bash
+   # Créer un fichier .env.local
+   RESEND_API_KEY=your_resend_api_key_here
+   ```
+
+4. **Lancer en développement**
    ```bash
    npm run dev
    ```
 
-4. **Ouvrir votre navigateur**
-   ```
-   http://localhost:3000
-   ```
+## ⚙️ Configuration Resend
 
-## 📁 Structure du Projet
+Pour activer l'envoi d'emails :
+
+1. **Créer un compte** sur [Resend](https://resend.com)
+2. **Obtenir une clé API** dans le dashboard
+3. **Créer un fichier `.env.local`** :
+   ```env
+   RESEND_API_KEY=re_your_api_key_here
+   ```
+4. **Configurer le domaine** dans Resend (optionnel)
+
+## 🏗️ Structure du Projet
 
 ```
 src/
-├── app/                 # App Router (Next.js 15)
-│   ├── globals.css     # Styles globaux
-│   ├── layout.tsx      # Layout principal
-│   └── page.tsx        # Page d'accueil
-├── components/          # Composants réutilisables
-│   ├── Navigation.tsx  # Navigation principale
-│   ├── Hero.tsx        # Section héro
-│   ├── Services.tsx    # Section services
-│   ├── Realisations.tsx # Section réalisations
-│   ├── Contact.tsx     # Section contact
-│   └── Footer.tsx      # Pied de page
-└── lib/                # Utilitaires et configurations
+├── app/
+│   ├── api/contact/route.ts    # API Resend
+│   ├── globals.css             # Styles globaux
+│   ├── layout.tsx              # Layout principal
+│   ├── page.tsx                # Page d'accueil
+│   ├── robots.ts               # Robots.txt
+│   └── sitemap.ts              # Sitemap
+├── components/
+│   ├── Contact.tsx             # Section contact
+│   ├── Footer.tsx              # Pied de page
+│   ├── Hero.tsx                # Section héro
+│   ├── Navigation.tsx          # Navigation
+│   ├── Realisations.tsx        # Section réalisations
+│   ├── ScrollToTop.tsx         # Bouton retour haut
+│   └── Services.tsx            # Section services
+└── ...
 ```
 
 ## 🎨 Composants Principaux
 
-### Navigation
-- Navigation fixe avec effet de transparence
-- Menu mobile responsive
-- Animations au survol et au clic
-- Liens vers toutes les sections
+### **Navigation**
+- **Scroll-aware** : change d'apparence selon le scroll
+- **Responsive** : menu hamburger sur mobile
+- **Smooth scroll** vers les sections
+- **CTA button** "Devis Gratuit"
 
-### Hero
-- Section d'accueil avec logo de l'entreprise
-- Titre principal avec effet de typewriter
-- Boutons d'appel à l'action
-- Statistiques de l'entreprise
-- Indicateur de défilement
+### **Hero**
+- **Vidéo de fond** avec overlay
+- **Titre animé** avec gradient
+- **Logo** de l'entreprise
+- **Call-to-action** buttons
 
-### Services
-- Présentation des 3 services principaux
-- Images des réalisations
-- Section détaillée sur le savoir-faire
-- Bouton de contact
+### **Services**
+- **3 services principaux** avec images
+- **Icons Lucide** pour chaque service
+- **Hover effects** sur les cartes
+- **Section "savoir-faire"**
 
-### Réalisations
-- Galerie d'images des travaux
-- Section des engagements de l'entreprise
-- Présentation des valeurs
+### **Réalisations**
+- **Galerie d'images** des projets
+- **Grid responsive** adaptatif
+- **Hover effects** sur les images
+- **Section engagements**
 
-### Contact
-- Formulaire de demande de devis
-- Informations de contact complètes
-- Zone d'intervention détaillée
-- Coordonnées des artisans
+### **Contact**
+- **Formulaire complet** avec validation
+- **Intégration Resend** pour emails
+- **Gestion des états** (loading, success, error)
+- **Informations de contact** détaillées
+- **Zones d'intervention** listées
 
 ## 🚀 Déploiement
 
-### Vercel (Recommandé)
+### **Vercel (Recommandé)**
+1. **Connecter le repo** GitHub à Vercel
+2. **Configurer les variables d'environnement** :
+   - `RESEND_API_KEY`
+3. **Déploiement automatique** à chaque push sur `main`
 
-1. **Connecter votre repository GitHub à Vercel**
-2. **Configurer les variables d'environnement si nécessaire**
-3. **Déployer automatiquement**
-
-### Configuration GitHub Actions
-
-Le projet inclut un workflow GitHub Actions pour le déploiement automatique sur Vercel.
-
-### Variables d'environnement requises
-
-```bash
+### **Variables d'environnement Vercel**
+```env
+RESEND_API_KEY=re_your_api_key_here
 NEXT_PUBLIC_SITE_URL=https://couvreur-vendee.fr
 ```
 
-### Configuration Vercel
-
-Le projet inclut un fichier `vercel.json` avec :
-- Configuration de build optimisée
-- Headers de sécurité
-- Configuration des fonctions
-- Région de déploiement (CDG1 - Paris)
-
 ## 📱 Responsive Design
 
-Le site est entièrement responsive avec :
-- Mobile First approach
-- Breakpoints : sm (640px), md (768px), lg (1024px), xl (1280px)
-- Navigation mobile avec menu hamburger
-- Grilles adaptatives
-- Images responsives
+### **Breakpoints**
+- **Mobile** : < 640px
+- **Tablet** : 640px - 1024px
+- **Desktop** : > 1024px
 
-## 🎭 Animations
-
-### Framer Motion
-- Animations d'entrée avec `initial` et `animate`
-- Animations au survol avec `whileHover`
-- Animations au clic avec `whileTap`
-- Transitions fluides et personnalisées
-
-### CSS Animations
-- Animations de flottement
-- Effets de pulsation
-- Transitions de couleur et de transformation
-
-## 🎨 Personnalisation
-
-### Couleurs
-Les couleurs sont basées sur l'ancien site :
-- `primary`: Palette de couleurs orange (couvreur)
-- `secondary`: Palette de couleurs bleues
-- `accent`: Palette de couleurs jaunes
-
-### Typographie
-- Police principale : Inter
-- Police d'affichage : Poppins
-- Tailles de texte responsives
+### **Optimisations Mobile**
+- **Navigation** : menu hamburger
+- **Textes** : tailles adaptées
+- **Images** : responsive et optimisées
+- **Touch targets** : minimum 44px
 
 ## 🔧 Scripts Disponibles
 
 ```bash
-npm run dev          # Démarre le serveur de développement
-npm run build        # Construit l'application pour la production
-npm run start        # Démarre le serveur de production
-npm run lint         # Lance ESLint
-npm run type-check   # Vérifie les types TypeScript
+npm run dev          # Développement local
+npm run build        # Build de production
+npm run start        # Serveur de production
+npm run lint         # Vérification ESLint
+npm run type-check   # Vérification TypeScript
 ```
 
 ## 📈 Performance
 
-- **Lazy Loading** des composants
-- **Optimisation des images** avec Next.js Image
-- **Code Splitting** automatique
-- **Bundle Analysis** disponible
+- **Images optimisées** avec Next.js
+- **Lazy loading** des composants
+- **Code splitting** automatique
+- **Bundle analyzer** intégré
+- **Core Web Vitals** optimisés
 
 ## 🔍 SEO
 
-- Métadonnées optimisées basées sur l'ancien site
-- Structure HTML sémantique
-- Open Graph tags
-- Schema.org markup
-- Mots-clés ciblés pour le référencement local
+### **Métadonnées**
+- **Title** optimisé pour la recherche
+- **Description** attractive et informative
+- **Keywords** ciblées
+- **Open Graph** pour les réseaux sociaux
 
-## 📸 Images et Contenu
+### **Structure**
+- **Sémantique HTML5** correcte
+- **Headings** hiérarchisés (H1, H2, H3)
+- **Alt text** pour toutes les images
+- **Schema markup** (à implémenter)
 
-Toutes les images et le contenu textuel proviennent de l'ancien site web :
-- Logo de l'entreprise
-- Photos des réalisations
-- Descriptions des services
-- Informations de contact
-- Zone d'intervention
+## 🎯 Améliorations Futures
 
-## 🚀 Déploiement Rapide
-
-### Option 1: Vercel (Recommandé)
-1. Fork ce repository
-2. Connectez-le à Vercel
-3. Déployez en un clic
-
-### Option 2: GitHub Actions
-1. Configurez les secrets GitHub
-2. Push sur la branche main
-3. Déploiement automatique
-
-### Option 3: Manuel
-1. `npm run build`
-2. Déployez le dossier `.next`
+- [ ] **Blog** avec articles techniques
+- [ ] **Galerie** interactive des réalisations
+- [ ] **Témoignages clients** avec avis
+- [ ] **Calculateur de devis** en ligne
+- [ ] **Chat en direct** pour support
+- [ ] **PWA** pour installation mobile
+- [ ] **Analytics** avancés
+- [ ] **A/B testing** des CTA
 
 ## 🤝 Contribution
 
-1. Fork le projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit les changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+1. **Fork** le projet
+2. **Créer une branche** feature
+3. **Commit** vos changements
+4. **Push** vers la branche
+5. **Ouvrir une Pull Request**
 
 ## 📄 Licence
 
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
+MIT License - voir le fichier [LICENSE](LICENSE) pour plus de détails.
 
 ## 📞 Support
 
 Pour toute question ou support :
-- Créer une issue sur GitHub
-- Contacter l'équipe de développement
+- **Email** : couvreur.devendee@orange.fr
+- **Téléphone** : 06 41 30 25 75 (Bryan) / 06 06 56 01 66 (Cédric)
+- **Adresse** : 26 rue Edouard-Monti, 85310 Nesmy
 
 ---
 
-**Développé avec ❤️ pour Couvreur de Vendée**
-
-*Site web moderne reprenant tout le contenu de l'ancien site avec une interface utilisateur améliorée et des animations fluides.*
+**Couvreur de Vendée** - Plus de 15 ans d'expérience au service de votre satisfaction ! 🏠✨

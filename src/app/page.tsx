@@ -4,6 +4,7 @@ import Services from '@/components/Services'
 import Realisations from '@/components/Realisations'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Realisations />
       <Contact />
       <Footer />
+      <ScrollToTop />
     </main>
   )
 }
