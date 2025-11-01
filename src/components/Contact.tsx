@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Phone, MapPin, Mail, Send, CheckCircle, AlertCircle } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,12 +10,18 @@ export default function Contact() {
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    company: '', // honeypot
+    formStart: '' // timestamp
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [statusMessage, setStatusMessage] = useState('')
+
+  useEffect(() => {
+    setFormData(prev => ({ ...prev, formStart: String(Date.now()) }))
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -223,6 +229,19 @@ export default function Contact() {
               )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot (anti-spam) */}
+                <div aria-hidden="true" className="absolute left-[-10000px] top-auto w-0 h-0 overflow-hidden">
+                  <label htmlFor="company">Entreprise</label>
+                  <input
+                    id="company"
+                    type="text"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    autoComplete="off"
+                    tabIndex={-1}
+                  />
+                </div>
                 <div>
                   <input
                     type="text"
