@@ -42,7 +42,7 @@ export default function Contact() {
       if (response.ok) {
         setSubmitStatus('success')
         setStatusMessage('Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.')
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+        setFormData({ name: '', email: '', phone: '', service: '', message: '', company: '', formStart: String(Date.now()) })
       } else {
         setSubmitStatus('error')
         setStatusMessage(result.error || 'Une erreur est survenue. Veuillez réessayer.')
