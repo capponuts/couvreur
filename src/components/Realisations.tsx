@@ -109,66 +109,41 @@ export default function Realisations() {
           </p>
         </motion.div>
 
-        {/* Carousel */}
-        <div className="mb-20">
-          <div className="relative">
-            <div className="overflow-hidden rounded-xl shadow-lg">
-              <div
-                className="flex transition-transform duration-500"
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {realisations.map((realisation, index) => (
-                  <div key={index} className="min-w-full">
-                    <button
-                      type="button"
-                      onClick={() => setIsLightboxOpen(true)}
-                      className="block w-full"
-                      aria-label={`Voir ${realisation.alt}`}
-                    >
-                      <img
-                        src={realisation.src}
-                        alt={realisation.alt}
-                        loading="lazy"
-                        className="w-full h-[50vh] md:h-[60vh] object-contain bg-slate-50"
-                      />
-                    </button>
-                  </div>
-                ))}
+        {/* Gallery Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-20"
+        >
+          {realisations.map((realisation, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-xl transition-all duration-300 bg-slate-50 aspect-square"
+              onClick={() => {
+                setCurrentIndex(index)
+                setIsLightboxOpen(true)
+              }}
+            >
+              <img
+                src={realisation.src}
+                alt={realisation.alt}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/20 transition-colors duration-300 flex items-center justify-center">
+                <div className="opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <span className="bg-white text-blue-600 px-4 py-2 rounded-full font-semibold shadow-lg">
+                    Voir le projet
+                  </span>
+                </div>
               </div>
-            </div>
-
-            {/* Controls */}
-            <button
-              type="button"
-              onClick={goPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow"
-              aria-label="Précédent"
-            >
-              ‹
-            </button>
-            <button
-              type="button"
-              onClick={goNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-10 h-10 flex items-center justify-center shadow"
-              aria-label="Suivant"
-            >
-              ›
-            </button>
-
-            {/* Dots */}
-            <div className="mt-4 flex items-center justify-center space-x-2">
-              {realisations.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Aller à la diapositive ${i + 1}`}
-                  onClick={() => setCurrentIndex(i)}
-                  className={`h-2.5 rounded-full transition-all ${currentIndex === i ? 'w-6 bg-orange-500' : 'w-2.5 bg-gray-300'
-                    }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Lightbox */}
         {isLightboxOpen && (
