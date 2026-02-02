@@ -6,12 +6,27 @@ import { useEffect, useState } from 'react'
 
 export default function Realisations() {
   const realisations = [
-    { src: '/real1.jpg', alt: 'Réalisation 1' },
-    { src: '/real2.jpg', alt: 'Réalisation 2' },
-    { src: '/real3.jpg', alt: 'Réalisation 3' },
-    { src: '/real4.jpg', alt: 'Réalisation 4' },
-    { src: '/real5.jpg', alt: 'Réalisation 5' },
-    { src: '/real6.jpg', alt: 'Réalisation 6' },
+    { src: '/real1.jpg', alt: 'Réalisation de toiture' },
+    { src: '/real2.jpg', alt: 'Nettoyage de toiture' },
+    { src: '/real3.jpg', alt: 'Pose de fenêtre de toit' },
+    { src: '/real4.jpg', alt: 'Travaux de zinguerie' },
+    { src: '/real5.jpg', alt: 'Rénovation de couverture' },
+    { src: '/real6.jpg', alt: 'Entretien de toiture' },
+    { src: '/real7.jpg', alt: 'Réalisation en Vendée' },
+    { src: '/real8.jpg', alt: 'Toiture terminée' },
+    { src: '/real9.jpg', alt: 'Chantier de couverture' },
+    { src: '/real10.jpg', alt: 'Zinguerie sur mesure' },
+    { src: '/real11.jpg', alt: 'Rénovation ardoise' },
+    { src: '/real12.jpg', alt: 'Protection de toiture' },
+    { src: '/real13.jpg', alt: 'Pose de tuiles' },
+    { src: '/real14.jpg', alt: 'Étanchéité toiture' },
+    { src: '/real15.jpg', alt: 'Réalisation Couvreur de Vendée' },
+    { src: '/real16.jpg', alt: 'Toiture neuve' },
+    { src: '/real17.jpg', alt: 'Travaux de rénovation' },
+    { src: '/real18.jpg', alt: 'Réparation de fuite' },
+    { src: '/real19.jpg', alt: 'Couverture zinc' },
+    { src: '/real20.jpg', alt: 'Nettoyage professionnel' },
+    { src: '/real21.jpg', alt: 'Finition de toiture' },
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -147,9 +162,8 @@ export default function Realisations() {
                   key={i}
                   aria-label={`Aller à la diapositive ${i + 1}`}
                   onClick={() => setCurrentIndex(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    currentIndex === i ? 'w-6 bg-orange-500' : 'w-2.5 bg-gray-300'
-                  }`}
+                  className={`h-2.5 rounded-full transition-all ${currentIndex === i ? 'w-6 bg-orange-500' : 'w-2.5 bg-gray-300'
+                    }`}
                 />
               ))}
             </div>
@@ -211,7 +225,7 @@ export default function Realisations() {
             <p className="text-lg text-gray-600 mb-8">
               Professionnels de travaux de toitures en Vendée, nous nous engageons à :
             </p>
-            
+
             <div className="space-y-6">
               {engagements.map((engagement, index) => (
                 <motion.div
